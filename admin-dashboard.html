@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Global Freight</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🚢 Global Freight - Admin</h1>
+                <p class="nav-subtitle">Dashboard</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Customer Portal</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2>Admin Dashboard</h2>
+                <p>Manage shipments, containers, fleet, finances, and inventory</p>
+            </div>
+
+            <div class="dashboard-tabs">
+                <button class="tab-btn active" data-tab="shipments">📦 Shipments</button>
+                <button class="tab-btn" data-tab="containers">🚚 Container Optimization</button>
+                <button class="tab-btn" data-tab="fleet">🚢 Fleet Management</button>
+                <button class="tab-btn" data-tab="financials">💰 Financials</button>
+                <button class="tab-btn" data-tab="inventory">🫐 Inventory</button>
+                <button class="tab-btn" data-tab="reports">📈 Reports</button>
+            </div>
+
+            <!-- Shipments Tab -->
+            <div id="shipments" class="tab-content active">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1.5rem;">All Shipments</h3>
+                <div class="table-container">
+                    <table id="shipmentsTable">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Product</th>
+                                <th>Weight (kg)</th>
+                                <th>Destination</th>
+                                <th>Container</th>
+                                <th>Status</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="shipmentsTableBody">
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Container Optimization Tab -->
+            <div id="containers" class="tab-content">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1.5rem;">Container Optimization</h3>
+                
+                <div class="alert alert-info">
+                    <strong>ℹ️ Container Optimization:</strong> This system uses a First-Fit Decreasing algorithm to efficiently pack shipments into containers, maximizing space utilization.
+                </div>
+
+                <button class="btn btn-success" id="optimizeBtn" style="margin-bottom: 2rem;">
+                    ⚡ Optimize Containers
+                </button>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Small Containers (2,000 kg)</h3>
+                        </div>
+                        <div class="card-body" id="smallContainers">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Medium Containers (5,000 kg)</h3>
+                        </div>
+                        <div class="card-body" id="mediumContainers">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Large Containers (10,000 kg)</h3>
+                        </div>
+                        <div class="card-body" id="largeContainers">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fleet Management Tab -->
+            <div id="fleet" class="tab-content">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1.5rem;">Fleet Management</h3>
+                
+                <h4 style="color: var(--secondary-blue); margin: 2rem 0 1rem;">Ships (International)</h4>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Capacity (kg)</th>
+                                <th>Fuel Cost/km</th>
+                                <th>Crew Cost</th>
+                                <th>Maintenance</th>
+                                <th>Total Expense</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="shipsTableBody">
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 style="color: var(--secondary-blue); margin: 2rem 0 1rem;">Trucks (Domestic)</h4>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Capacity (kg)</th>
+                                <th>Fuel Cost/km</th>
+                                <th>Driver Cost</th>
+                                <th>Maintenance</th>
+                                <th>Total Expense</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="trucksTableBody">
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Financials Tab -->
+            <div id="financials" class="tab-content">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1.5rem;">Financial Summary</h3>
+                
+                <div class="stats-cards">
+                    <div class="stat-card-dashboard">
+                        <h4>Total Revenue</h4>
+                        <div class="value" id="totalRevenue">₺0</div>
+                    </div>
+                    <div class="stat-card-dashboard">
+                        <h4>Fleet Expenses</h4>
+                        <div class="value" id="fleetExpenses">₺0</div>
+                    </div>
+                    <div class="stat-card-dashboard">
+                        <h4>Other Expenses</h4>
+                        <div class="value" id="otherExpenses">₺80,000</div>
+                    </div>
+                    <div class="stat-card-dashboard">
+                        <h4>Net Income</h4>
+                        <div class="value" id="netIncome">₺0</div>
+                    </div>
+                    <div class="stat-card-dashboard">
+                        <h4>Tax (20%)</h4>
+                        <div class="value" id="tax">₺0</div>
+                    </div>
+                    <div class="stat-card-dashboard">
+                        <h4>Profit After Tax</h4>
+                        <div class="value" id="profitAfterTax">₺0</div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 2rem;">
+                    <div class="card-header">
+                        <h3>Financial Breakdown</h3>
+                    </div>
+                    <div class="card-body" id="financialBreakdown">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inventory Tab -->
+            <div id="inventory" class="tab-content">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1.5rem;">Inventory Management</h3>
+                
+                <div id="inventoryAlerts"></div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Current Stock (kg)</th>
+                                <th>Minimum Stock (kg)</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inventoryTableBody">
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Reports Tab -->
+            <div id="reports" class="tab-content">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1.5rem;">Comprehensive Reports</h3>
+                
+                <button class="btn btn-primary" id="generateReportBtn" style="margin-bottom: 2rem;">
+                    📊 Generate Full Report
+                </button>
+                <button class="btn btn-secondary" id="exportPdfBtn" style="margin-bottom: 2rem;">
+                    📄 Export as PDF
+                </button>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Business Metrics</h3>
+                        </div>
+                        <div class="card-body" id="businessMetrics">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Operational Statistics</h3>
+                        </div>
+                        <div class="card-body" id="operationalStats">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Popular Routes</h3>
+                        </div>
+                        <div class="card-body" id="popularRoutes">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Products Sold</h3>
+                        </div>
+                        <div class="card-body" id="productsSold">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Global Freight</h3>
+                    <p>📍 Head Office: Muğla, Turkey</p>
+                    <p>📧 info@globalfreight.com</p>
+                    <p>📞 +90 252 XXX XXXX</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="create-shipment.html">Create Shipment</a></li>
+                        <li><a href="tracking.html">Track Order</a></li>
+                        <li><a href="admin-login.html">Admin Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li>International Shipping</li>
+                        <li>Domestic Transport</li>
+                        <li>Container Optimization</li>
+                        <li>Fleet Management</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Global Freight Transport & Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

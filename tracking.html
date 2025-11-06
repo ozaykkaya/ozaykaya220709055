@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Shipment - Global Freight</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🚢 Global Freight</h1>
+                <p class="nav-subtitle">Muğla, Turkey</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="create-shipment.html">Create Shipment</a></li>
+                <li><a href="tracking.html" class="active">Track Order</a></li>
+                <li><a href="admin-login.html">Admin Portal</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="form-section">
+        <div class="container">
+            <h2 class="section-title">Track Your Shipment</h2>
+            
+            <div class="form-container">
+                <form id="trackingForm">
+                    <div class="form-group">
+                        <label for="orderId">Enter Order ID *</label>
+                        <input type="text" id="orderId" name="orderId" required placeholder="e.g., SHP-1730000000000">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Track Shipment</button>
+                </form>
+
+                <div id="trackingResult" style="display: none; margin-top: 2rem;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Shipment Information</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-row">
+                                <span class="info-label">Order ID:</span>
+                                <span class="info-value" id="resultOrderId">-</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Customer Name:</span>
+                                <span class="info-value" id="resultCustomerName">-</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Product:</span>
+                                <span class="info-value" id="resultProduct">-</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Weight:</span>
+                                <span class="info-value" id="resultWeight">-</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Destination:</span>
+                                <span class="info-value" id="resultDestination">-</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Container:</span>
+                                <span class="info-value" id="resultContainer">-</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Status:</span>
+                                <span class="info-value" id="resultStatus">-</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Total Price:</span>
+                                <span class="info-value" id="resultPrice" style="font-weight: 700; color: var(--success);">-</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Estimated Delivery:</span>
+                                <span class="info-value" id="resultDelivery">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Shipment Timeline</h3>
+                        </div>
+                        <div class="card-body" id="timeline">
+                            <!-- Timeline will be populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="notFound" style="display: none; margin-top: 2rem;">
+                    <div class="alert alert-error">
+                        <strong>❌ Not Found:</strong> No shipment found with this Order ID. Please check the ID and try again.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Global Freight</h3>
+                    <p>📍 Head Office: Muğla, Turkey</p>
+                    <p>📧 info@globalfreight.com</p>
+                    <p>📞 +90 252 XXX XXXX</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="create-shipment.html">Create Shipment</a></li>
+                        <li><a href="tracking.html">Track Order</a></li>
+                        <li><a href="admin-login.html">Admin Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li>International Shipping</li>
+                        <li>Domestic Transport</li>
+                        <li>Container Optimization</li>
+                        <li>Fleet Management</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Global Freight Transport & Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/tracking.js"></script>
+</body>
+</html>

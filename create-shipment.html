@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Shipment - Global Freight</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🚢 Global Freight</h1>
+                <p class="nav-subtitle">Muğla, Turkey</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="create-shipment.html" class="active">Create Shipment</a></li>
+                <li><a href="tracking.html">Track Order</a></li>
+                <li><a href="admin-login.html">Admin Portal</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="form-section">
+        <div class="container">
+            <h2 class="section-title">Create New Shipment</h2>
+            <div class="form-container">
+                <div id="alertContainer"></div>
+                
+                <form id="shipmentForm">
+                    <div class="form-group">
+                        <label for="customerName">Customer Name *</label>
+                        <input type="text" id="customerName" name="customerName" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productName">Product Name *</label>
+                        <input type="text" id="productName" name="productName" required placeholder="e.g., Fresh Blueberries">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="category">Product Category *</label>
+                            <select id="category" name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="Fresh">Fresh Blueberries</option>
+                                <option value="Frozen">Frozen Blueberries</option>
+                                <option value="Organic">Organic Blueberries</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="weight">Weight (kg) *</label>
+                            <input type="number" id="weight" name="weight" min="1" required placeholder="e.g., 500">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="containerType">Container Type *</label>
+                        <select id="containerType" name="containerType" required>
+                            <option value="">Select Container Type</option>
+                            <option value="Small">Small (2,000 kg) - ₺5/km</option>
+                            <option value="Medium">Medium (5,000 kg) - ₺8/km</option>
+                            <option value="Large">Large (10,000 kg) - ₺12/km</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="destination">Destination *</label>
+                        <select id="destination" name="destination" required>
+                            <option value="">Select Destination</option>
+                            <option value="Athens, Greece">Athens, Greece (350 km)</option>
+                            <option value="Cairo, Egypt">Cairo, Egypt (840 km)</option>
+                            <option value="Belgrade, Serbia">Belgrade, Serbia (1,015 km)</option>
+                            <option value="Baku, Azerbaijan">Baku, Azerbaijan (1,950 km)</option>
+                            <option value="Berlin, Germany">Berlin, Germany (2,030 km)</option>
+                            <option value="Moscow, Russia">Moscow, Russia (2,190 km)</option>
+                            <option value="Paris, France">Paris, France (2,420 km)</option>
+                            <option value="Madrid, Spain">Madrid, Spain (2,670 km)</option>
+                            <option value="London, United Kingdom">London, United Kingdom (2,810 km)</option>
+                            <option value="New Delhi, India">New Delhi, India (4,760 km)</option>
+                            <option value="Dhaka, Bangladesh">Dhaka, Bangladesh (6,065 km)</option>
+                            <option value="Beijing, China">Beijing, China (7,133 km)</option>
+                            <option value="Seoul, South Korea">Seoul, South Korea (8,315 km)</option>
+                            <option value="Washington D.C., United States">Washington D.C., United States (8,490 km)</option>
+                            <option value="Tokyo, Japan">Tokyo, Japan (9,350 km)</option>
+                            <option value="Manila, Philippines">Manila, Philippines (9,370 km)</option>
+                            <option value="Jakarta, Indonesia">Jakarta, Indonesia (9,490 km)</option>
+                            <option value="Mexico City, Mexico">Mexico City, Mexico (11,627 km)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productImage">Product Image (Optional)</label>
+                        <input type="file" id="productImage" name="productImage" accept="image/*">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Additional Notes (Optional)</label>
+                        <textarea id="notes" name="notes" rows="4" placeholder="Any special requirements or instructions..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Calculate Price & Create Shipment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Global Freight</h3>
+                    <p>📍 Head Office: Muğla, Turkey</p>
+                    <p>📧 info@globalfreight.com</p>
+                    <p>📞 +90 252 XXX XXXX</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="create-shipment.html">Create Shipment</a></li>
+                        <li><a href="tracking.html">Track Order</a></li>
+                        <li><a href="admin-login.html">Admin Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li>International Shipping</li>
+                        <li>Domestic Transport</li>
+                        <li>Container Optimization</li>
+                        <li>Fleet Management</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Global Freight Transport & Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/shipment.js"></script>
+</body>
+</html>
